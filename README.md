@@ -5,5 +5,8 @@ Maps Paths
 CSCE 4901 - Software Development Project
 
 
-#Members
+##Members
 Loc Huynh | Zachary Serna | Bereket Teweldebrhan | Manuel Vargas 
+
+
+README.md updated by Manuel Vargas
