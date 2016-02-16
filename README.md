@@ -1,3 +1,8 @@
+<!-- using shields.io for status buttons -->
+![Programming language](https://img.shields.io/badge/Language-C++-black.svg)
+![Build Status](https://img.shields.io/badge/Build-Passing-green.svg)
+![UELVVA](https://img.shields.io/badge/Version-v0.3-blue.svg?style=flat)
+
 # Path Mapper
 CSCE 4901 - Software Development Project
 
@@ -23,5 +28,6 @@ Loc Huynh | Zachary Serna | Bereket Teweldebrhan | Manuel Vargas
 - [ ] Delivery Plan - Due 4/29/16
 
 
-:japanese_castle: :city_sunset: :car:
+:date: :ok_hand:
+
 README.md updated by Manuel Vargas
