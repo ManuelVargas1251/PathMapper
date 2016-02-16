@@ -14,6 +14,7 @@ Loc Huynh | Zachary Serna | Bereket Teweldebrhan | Manuel Vargas
 - [ ] Requirements Specification - Due 2/29/16
 - [ ] Design Document - Due 3/11/16
 - [ ] Users/Administrators Manual - Due 4/15/16
+- [ ] Design Day Presentation/Poster Due 4/25/16
 - [ ] Delivery Plan - Due 4/29/16
 
 
