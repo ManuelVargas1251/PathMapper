@@ -1,4 +1,4 @@
-# PathMapper
+# Path Mapper
 CSCE 4901 - Software Development Project
 
 ##Introduction
@@ -23,5 +23,5 @@ Loc Huynh | Zachary Serna | Bereket Teweldebrhan | Manuel Vargas
 - [ ] Delivery Plan - Due 4/29/16
 
 
-
+:japanese_castle: :city_sunset: :car:
 README.md updated by Manuel Vargas
