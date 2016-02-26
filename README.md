@@ -1,8 +1,7 @@
 <!-- using shields.io for status buttons -->
-![Programming language](https://img.shields.io/badge/Language-Java-black.svg)
+![Programming Language](https://img.shields.io/badge/Language-Java-black.svg)
 ![Build Status](https://img.shields.io/badge/Build-Documentation-green.svg)
-![UELVVA](https://img.shields.io/badge/Version-v0.003-blue.svg)
-
+![Version](https://img.shields.io/badge/Version-v0.003-blue.svg)
 # Path Mapper
 CSCE 4901 - Software Development Project
 
