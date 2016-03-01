@@ -15,7 +15,7 @@ We’ve created this as a part of a senior school project to help us understand 
 
 
 ##Members
-[Loc Huynh]() | [Zachary Serna]() | [Bereket Teweldebrhan]() | [Manuel Vargas](http://manuelvargas.me/dynamo)
+[Loc Huynh](https://github.com/loczhuynh) | [Zachary Serna](https://github.com/ZacharySerna) | [Bereket Teweldebrhan](https://github.com/bkmearoy) | [Manuel Vargas](http://manuelvargas.me/dynamo)
 
 ##Deliverables
 
