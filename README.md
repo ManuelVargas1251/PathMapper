@@ -20,11 +20,21 @@ Loc Huynh | Zachary Serna | Bereket Teweldebrhan | Manuel Vargas
 ##Deliverables
 
 - [x] Project Management Plan (PMP) - Due 2/12/16
-- [ ] Requirements Specification - Due 2/29/16
+- [x] Requirements Specification - Due 2/29/16
 - [ ] Design Document - Due 3/11/16
 - [ ] Users/Administrators Manual - Due 4/15/16
 - [ ] Design Day Presentation/Poster - Due 4/25/16
 - [ ] Delivery Plan - Due 4/29/16
+
+##Status Reports
+Reports are due every other week
+- [x] 2/11/16
+- [x] 2/25/16
+- [x] 3/10/16
+- [ ] 3/24/16
+- [ ] 4/7/16
+- [ ] 4/21/16
+
 
 
 :date: :ok_hand:
