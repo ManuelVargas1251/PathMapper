@@ -15,7 +15,7 @@ We’ve created this as a part of a senior school project to help us understand 
 
 
 ##Members
-Loc Huynh | Zachary Serna | Bereket Teweldebrhan | Manuel Vargas 
+[Loc Huynh]() | [Zachary Serna]() | [Bereket Teweldebrhan]() | [Manuel Vargas](http://manuelvargas.me/dynamo)
 
 ##Deliverables
 
@@ -30,7 +30,7 @@ Loc Huynh | Zachary Serna | Bereket Teweldebrhan | Manuel Vargas
 Reports are due every other week
 - [x] 2/11/16
 - [x] 2/25/16
-- [x] 3/10/16
+- [ ] 3/10/16
 - [ ] 3/24/16
 - [ ] 4/7/16
 - [ ] 4/21/16
