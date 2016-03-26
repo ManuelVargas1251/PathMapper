@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="#93eea7">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Path Mapper"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.33" />
+
+    <EditText
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchInput"
+        android:layout_gravity="center_horizontal"
+        android:background="#ffffff"
+        android:layout_weight="0.05"
+        android:text="Search for Path..."
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/searchButton"
+        android:background="#30db4a"
+        android:layout_gravity="center" />
+
+    <Button
+        android:layout_width="332dp"
+
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:id="@+id/clearButton"
+        android:background="#f31118"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.33"></LinearLayout>
+</LinearLayout>

@@ -1,7 +1,9 @@
 package com.example.admin.gpstracker;
 
+//Standard and Content Imports
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -14,28 +16,56 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.content.Intent;
 
+//Google Map Imports
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+//import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     private Button button;
-    private Button button2;
     private TextView textView;
+
     private LocationManager locationManager;
     private LocationListener locationListener;
+    private LatLng newLoc;
+
+    private GoogleMap newMap;
+    private CameraUpdateFactory camera;
+
+    private boolean buttonStatus = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SupportMapFragment mapFrag = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.mapFragment);
+        mapFrag.getMapAsync(this);
+
         button = (Button) findViewById(R.id.button);
         textView = (TextView) findViewById(R.id.textView);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
+
             @Override
             public void onLocationChanged(Location location) {
-                textView.append("\n " + location.getLatitude() + " " + location.getLongitude());
+                textView.setText("Lat: " + location.getLatitude() + ", Long: " + location.getLongitude());
+                newLoc = new LatLng(location.getLatitude(), location.getLongitude());
+
+                newMap.moveCamera(CameraUpdateFactory.zoomTo(18));
+
+                newMap.addMarker(new MarkerOptions()
+                        .position(newLoc)
+                        .title(""));
+
+                newMap.moveCamera(CameraUpdateFactory.newLatLng(newLoc));
             }
 
             @Override
@@ -89,8 +119,32 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+                if(!buttonStatus){
+                    locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+                    button.setBackgroundColor(Color.RED);
+                    button.setText("Stop Receive Locations");
+                    buttonStatus = true;
+                }
+                else{
+                    locationManager.removeUpdates(locationListener);
+                    button.setBackgroundColor(Color.GREEN);
+                    button.setText("Receive Locations");
+                    textView.setText("Lat: , Lat: ");
+                    buttonStatus = false;
+                }
             }
         });
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        newMap = map;
+        newMap.moveCamera(CameraUpdateFactory.zoomTo(10));
+        newMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(33.2075, -97.1526)));
+/*
+        newMap.addMarker(new MarkerOptions()
+                .position(new LatLng(33.2075, -97.1526))
+                .title("UNT"));
+*/
     }
 }
