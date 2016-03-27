@@ -9,40 +9,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.admin.gpstracker.MainActivity"
     android:clickable="true"
-    android:background="#8c8888">
+    android:background="@drawable/path1">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Receive Locations"
-        android:id="@+id/button"
-        android:clickable="true"
-        android:height="40dp"
-        android:background="#00fd01"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:singleLine="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        <EditText
+            android:layout_width="332dp"
+            android:layout_height="50dp"
+            android:id="@+id/searchInput"
+            android:layout_gravity="center_horizontal"
+            android:background="#ffffff"
+            android:layout_weight="0.05"
+            android:textAlignment="center"
+            android:hint="Search a path..."
+            android:singleLine="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="89dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Lat: , Long: "
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="15sp" />
+        <Button
+            android:layout_width="332dp"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/searchButton"
+            android:background="#30db4a"
+            android:layout_gravity="center"
+            android:layout_above="@+id/clearButton"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
 
-    <fragment
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="55dp"
-        android:layout_marginTop="25dp"
-        android:id="@+id/mapFragment" />
+        <Button
+            android:layout_width="332dp"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:id="@+id/clearButton"
+            android:background="#f31118"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
 
 </RelativeLayout>
