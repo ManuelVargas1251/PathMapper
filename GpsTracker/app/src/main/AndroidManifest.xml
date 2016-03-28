@@ -49,6 +49,14 @@
         <activity
             android:name=".createPathActivity"
             android:label="@string/title_activity_create_path"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".createPathPopActivity"
+            android:label="@string/title_activity_create_path_pop_activty"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name=".geoTablePrintActivity"
+            android:label="@string/title_activity_geo_table_print"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

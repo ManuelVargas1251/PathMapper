@@ -33,7 +33,12 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
                 searchString = searchInput.getText().toString();
 
-                startActivity(new Intent(getApplicationContext(), createPathActivity.class));
+                if (searchLocExist(searchString))
+                    startActivity(new Intent(getApplicationContext(), createPathActivity.class));
+                else {
+                    searchInput.setText("");
+                    startActivity(new Intent(getApplicationContext(), createPathPopActivity.class));
+                }
             }
         });
     }
@@ -45,6 +50,13 @@ public class MainActivity extends AppCompatActivity{
                 searchInput.setText("");
             }
         });
+    }
+
+    public boolean searchLocExist(String searchedLoc){
+        if(searchedLoc.length() >  2)
+            return true;
+
+        return false;
     }
 
 }

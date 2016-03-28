@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">GpsTracker</string>
     <string name="title_activity_create_path">createPathActivity</string>
+    <string name="title_activity_create_path_pop_activty">createPathPopActivty</string>
+    <string name="title_activity_geo_table_print">geoTablePrintActivity</string>
 </resources>

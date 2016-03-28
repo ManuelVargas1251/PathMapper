@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".createPathPopActivity"
+    android:background="#fb504d4d"
+    android:id="@+id/createPathPop">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Path Mapper could not find a path near your searched location, would you like to create a new path?"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:id="@+id/popWindowText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:id="@+id/yesPopButton"
+        android:layout_below="@+id/popWindowText"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:clickable="true"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:id="@+id/noPopButton"
+        android:layout_below="@+id/popWindowText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40dp"
+        android:clickable="true"
+        android:layout_marginTop="20dp" />
+</RelativeLayout>

@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -23,16 +24,26 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.io.Serializable;
 
 public class createPathActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private boolean firstLoop = true;
 
     private Button button, backButton;
 
     private TextView textView;
 
+    private GeopointTable geopointTable = new GeopointTable();
+    private Geopoint newGeopoint, prevGeopoint = null;
+
     private LocationManager locationManager;
     private LocationListener locationListener;
-    private LatLng newLoc;
+    private LatLng newLoc, prevLoc;
+    private Polyline line;
 
     private GoogleMap newMap;
 
@@ -63,9 +74,23 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
 
                 newMap.moveCamera(CameraUpdateFactory.zoomTo(18));
 
-                newMap.addMarker(new MarkerOptions()
-                        .position(newLoc)
-                        .title(""));
+                newGeopoint = new Geopoint(location.getLatitude(), location.getLongitude(), prevGeopoint, null);
+                geopointTable.addGeopoint(newGeopoint);
+
+                if(!firstLoop) {
+                        // Add a thin red line from London to New York.
+                        line = newMap.addPolyline(new PolylineOptions()
+                                .add(prevLoc, newLoc)
+                                .width(5)
+                                .color(Color.RED));
+
+                    geopointTable.setEndsNextGeopoint(newGeopoint);
+                }
+
+                prevGeopoint = newGeopoint;
+
+                prevLoc = newLoc;
+                firstLoop = false;
 
                 newMap.moveCamera(CameraUpdateFactory.newLatLng(newLoc));
             }
@@ -116,7 +141,7 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void onClick(View v) {
                 if(!buttonStatus){
-                    locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+                    locationManager.requestLocationUpdates("gps", 2000, 1, locationListener);
                     button.setBackgroundColor(Color.RED);
                     button.setText("Stop Receive Locations");
                     buttonStatus = true;
@@ -137,10 +162,14 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void onClick(View v) {
                 locationManager.removeUpdates(locationListener);
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(getApplicationContext(), geoTablePrintActivity.class);
+
+                intent.putExtra("table", geopointTable);
+
+                startActivity(intent);
+                finish();
             }
         });
-
     }
 
     @Override
@@ -149,4 +178,6 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
         newMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         newMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(33.2075, -97.1526)));
     }
+
+
 }
