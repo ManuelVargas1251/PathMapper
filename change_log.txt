@@ -1,5 +1,12 @@
+Path Mapper - Change Log
+--------------------------------------------------------------------------------
 Updated: 03/31/2016
 Current Version: 0.4.1
 Update Author: Zachary Serna
 --------------------------------------------------------------------------------
-Updates coming soon...
+Added:
+	
+Removed:
+		- Removed dulplicated createPathActivity-Ai as well as its related layout.
+
+Changed:
