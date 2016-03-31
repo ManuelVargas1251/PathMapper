@@ -140,10 +140,11 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void onClick(View v) {
                 if(!buttonStatus){
-                    locationManager.requestLocationUpdates("gps", 1000, 0, locationListener);
+                    locationManager.requestLocationUpdates("gps", 1000, 1, locationListener);
                     button.setBackgroundColor(Color.RED);
                     button.setText("Stop Receive Locations");
                     buttonStatus = true;
+                    geopointTableTextView.setText("");
                 }
                 else{
                     locationManager.removeUpdates(locationListener);
@@ -151,10 +152,8 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
                     button.setText("Receive Locations");
                     buttonStatus = false;
 
-                   geopointTableTextView.setText("");
-
-                    for(int i = 0; i < geopointTable.getGeopointCount(); i++)
-                            geopointTableTextView.append((i+1 + ". Lat: " + geopointTable.getGeopointByIndex(i).getLat() + " Long: " + geopointTable.getGeopointByIndex(i).getLng() + "\n\t-Dist to Next: " + geopointTable.getGeopointByIndex(i).getNextDistance() + "\n\n"));
+                   for(int i = 0; i < geopointTable.getGeopointCount(); i++)
+                       geopointTableTextView.append((i+1 + ". Lat: " + geopointTable.getGeopointByIndex(i).getLat() + " Long: " + geopointTable.getGeopointByIndex(i).getLng() + "\n\t-Dist to Next: " + geopointTable.getGeopointByIndex(i).getNextDistance() + "\n\n"));
                 }
             }
         });
@@ -165,10 +164,10 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
             @Override
             public void onClick(View v) {
                 locationManager.removeUpdates(locationListener);
-              //  Intent intent = new Intent(getApplicationContext(), geoTablePrintActivity.class);
 
+               // Code Section not in use
+               // Intent intent = new Intent(getApplicationContext(), geoTablePrintActivity.class);
                // intent.putExtra("table", geopointTable);
-
                // startActivity(intent);
                 finish();
             }

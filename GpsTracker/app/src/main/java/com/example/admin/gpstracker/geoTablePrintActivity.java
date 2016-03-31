@@ -27,7 +27,7 @@ public class geoTablePrintActivity extends AppCompatActivity {
         GeopointTable geopointTable = (GeopointTable) intent.getSerializableExtra("table");
 
         for(int i = 0; i < geopointTable.getGeopointCount(); i++)
-            geopointTableText.append(i+1 + ". Lat: " + geopointTable.getGeopointByIndex(i).getLat() + " Long: " + geopointTable.getGeopointByIndex(i).getLng() + "\n");
+            geopointTableText.append(i+1 + ". Lat: " + geopointTable.getGeopointByIndex(i).getLat() + " Long: " + geopointTable.getGeopointByIndex(i).getLng() + "\n\t-Dist to Next: " + geopointTable.getGeopointByIndex(i).getNextDistance() + "\n\n");
 
         closeGeopointTableClick();
     }
