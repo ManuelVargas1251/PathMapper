@@ -11,37 +11,42 @@
     android:clickable="true"
     android:background="@drawable/path1">
 
-        <EditText
-            android:layout_width="332dp"
-            android:layout_height="50dp"
-            android:id="@+id/searchInput"
-            android:layout_gravity="center_horizontal"
-            android:background="#ffffff"
-            android:layout_weight="0.05"
-            android:textAlignment="center"
-            android:hint="Search a path..."
-            android:singleLine="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="89dp" />
-
-        <Button
-            android:layout_width="150dp"
+    <Button
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Search"
             android:id="@+id/searchButton"
             android:layout_gravity="center"
             android:background="#00fd01"
-            android:layout_alignTop="@+id/clearButton"
-            android:layout_alignParentStart="true" />
-
-    <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Clear"
-            android:id="@+id/clearButton"
-            android:layout_gravity="center"
-            android:background="#f11119"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/searchInput"
+        android:background="#ffffff"
+        android:textAlignment="center"
+        android:hint="Search a path..."
+        android:singleLine="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="89dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="X"
+                android:id="@+id/clearButton"
+                android:layout_gravity="right|top"
+                android:background="#ebebeb"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="89dp"
+            android:textSize="20dp" />
+    </FrameLayout>
 
 </RelativeLayout>

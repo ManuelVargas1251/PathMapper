@@ -11,3 +11,22 @@ Removed:
 Changed:
 		* New GitHub project directory name changed to Path Mapper
 		* Moved GPSTracker files to new Project name Path Mapper.
+		
+
+--------------------------------------------------------------------------------
+Updated: 04/11/2016
+Current Version: 0.5.1
+Update Author: Zachary Serna
+--------------------------------------------------------------------------------
+Added:	
+		+ New Navigate Pane containing Google Maps Api & Fragment
+	
+Removed:
+		- Title Pane for Application
+		
+Changed:
+		* Altered Names for Create Path Pop to "popNextActivity" so that i may handle 
+		  Other task.
+		  
+		* Changed UI by moving clear button to search input for less clutter. Expanded
+		  search button.

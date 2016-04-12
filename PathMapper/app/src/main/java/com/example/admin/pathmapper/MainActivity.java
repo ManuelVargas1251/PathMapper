@@ -8,13 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
 
-import com.example.admin.pathmapper.R;
-
 public class MainActivity extends AppCompatActivity{
 
     private Button searchButton, clearButton;
     private EditText searchInput;
     private String searchString;
+    private int answer, searchFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +33,21 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 searchString = searchInput.getText().toString();
+                Intent intent = new Intent(getApplicationContext(), popNextActivity.class);
+                //intent.putExtra("searchString", searchString);
 
-                if (searchLocExist(searchString))
-                    startActivity(new Intent(getApplicationContext(), createPathActivity.class));
-                else {
-                    searchInput.setText("");
-                    startActivity(new Intent(getApplicationContext(), createPathPopActivity.class));
+                searchFlag = searchLocExist(searchString);
+
+                if(searchFlag == 0){
+                    intent.putExtra("nextActivity", 0);
+                    startActivityForResult(intent, 1);
                 }
+                else if (searchFlag == 1) {
+                    intent.putExtra("nextActivity", 1);
+                    startActivityForResult(intent, 1);
+                }
+
+                searchInput.setText("");
             }
         });
     }
@@ -54,11 +61,34 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-    public boolean searchLocExist(String searchedLoc){
-        if(searchedLoc.length() >  2)
-            return true;
+    public int searchLocExist(String searchedLoc){
 
-        return false;
+        if(searchedLoc.length() > 0)
+            return 1;
+        else
+            return 0;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(requestCode == 1){
+            if(resultCode == popNextActivity.RESULT_OK){
+                answer = data.getIntExtra("answer", 0);
+
+                //Passes Search String to Create Path Activity.
+                if(searchFlag == 0 && answer == 1) {
+                    Intent nextActivityIntent = new Intent(getApplicationContext(), createPathActivity.class);
+                    nextActivityIntent.putExtra("searchString", searchString);
+                    startActivity(nextActivityIntent);
+                }
+                //Passes Search String to Navigate Path Activity.
+                else if(searchFlag == 1 && answer == 1) {
+                    Intent nextActivityIntent = new Intent(getApplicationContext(), navigateActivity.class);
+                    nextActivityIntent.putExtra("searchString", searchString);
+                    startActivity(nextActivityIntent);
+                }
+            }
+        }
+    }
 }
