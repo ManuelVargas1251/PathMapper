@@ -56,9 +56,11 @@
             android:name=".popNextActivity"
             android:label="@string/title_activity_create_path_pop_activty"
             android:theme="@style/AppTheme.CustomTheme" />
-        <activity android:name=".navigateActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
+        <activity
+            android:name=".navigateActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".popCreatePath"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 
 </manifest>

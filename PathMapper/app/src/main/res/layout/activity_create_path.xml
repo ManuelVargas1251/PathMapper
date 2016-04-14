@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.admin.pathmapper.createPathActivity"
     android:clickable="true"
-    android:background="#8c8888">
+    >
 
     <Button
         android:layout_width="wrap_content"

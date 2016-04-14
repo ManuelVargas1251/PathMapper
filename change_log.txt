@@ -12,7 +12,6 @@ Changed:
 		* New GitHub project directory name changed to Path Mapper
 		* Moved GPSTracker files to new Project name Path Mapper.
 		
-
 --------------------------------------------------------------------------------
 Updated: 04/11/2016
 Current Version: 0.5.1
@@ -30,3 +29,22 @@ Changed:
 		  
 		* Changed UI by moving clear button to search input for less clutter. Expanded
 		  search button.
+		  
+--------------------------------------------------------------------------------
+Updated: 04/13/2016
+Current Version: 0.7.1
+Update Author: Zachary Serna
+--------------------------------------------------------------------------------
+Added:	
+		+ System to upload geopoints to firebase installed.
+			-Included dynamic unique name generation using UUID.
+		+ Flow control added to Navigate and Create Path Activities.
+		+ Navigate activity function to create path created.
+		+ Navigate activity will calculate distance and time to destination.
+	
+Removed:
+		- Background Pictures from path creation and navigate activity, which were
+		  causing stack issues.
+		
+Changed:
+		* Altered button response on destination name submission.

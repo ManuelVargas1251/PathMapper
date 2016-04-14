@@ -3,6 +3,7 @@ package com.example.admin.pathmapper;
 import android.*;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
@@ -19,41 +20,64 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 public class navigateActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private String destString;
 
     private GeopointTable geopointTable = new GeopointTable();
     private Geopoint newGeopoint, prevGeopoint = null;
 
     private LocationManager locationManager;
     private LocationListener locationListener;
-    private LatLng newLoc, prevLoc;
+    private LatLng newLoc;
     private Polyline line;
 
     private GoogleMap newMap;
+    private Marker marker, destMarker;
 
-    private boolean buttonStatus = false;
+    private Button backButton;
+    private TextView infoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigate);
 
+        Intent intent = getIntent();
+        destString = intent.getStringExtra("destString");
+
+        infoPane = (TextView) findViewById(R.id.infoPane);
+        backButton = (Button) findViewById(R.id.backButton);
+        backButton();
+        //getPath();
+        //drawPath();
+
         SupportMapFragment mapFrag = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapFragment);
 
         mapFrag.getMapAsync(this);
-
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
 
             @Override
             public void onLocationChanged(Location location) {
+                newLoc = new LatLng(location.getLatitude(), location.getLongitude());
 
+                //Creates maker of user position.
+                marker = newMap.addMarker(new MarkerOptions()
+                                                .position(newLoc)
+                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+
+                newMap.moveCamera(CameraUpdateFactory.zoomTo(18));
+                newMap.moveCamera(CameraUpdateFactory.newLatLng(newLoc));
             }
 
             @Override
@@ -83,7 +107,7 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
             return;
         }
         else {
-
+            getLocation();
         }
 
     }
@@ -92,16 +116,60 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
         switch (requestCode) {
             case 10:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                   ;//Add Item to start receiving updates
+                   getLocation();
 
                 return;
         }
     }
 
+    public void getLocation(){
+        locationManager.requestLocationUpdates("gps", 0, 0, locationListener);
+    }
+
+    public void backButton(){
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                locationManager.removeUpdates(locationListener);
+                finish();
+            }
+        });
+    }
+
+    public void getPath(){
+        //Enter code to get path
+    }
+
+    public void drawPath(){
+        int distanceFt = 0, timeToDestination = 0;
+
+        for(int i = 1; i < geopointTable.getGeopointCount(); i++) {
+            //Builds Polyline to navigate.
+            line = newMap.addPolyline(new PolylineOptions()
+                    .add(new LatLng(geopointTable.getGeopointByIndex(i-1).getLat(),
+                                    geopointTable.getGeopointByIndex(i-1).getLng()),
+                         new LatLng(geopointTable.getGeopointByIndex(i).getLat(),
+                                    geopointTable.getGeopointByIndex(i).getLng()))
+                    .width(5)
+                    .color(Color.GRAY));
+
+            if((i-1) == geopointTable.getGeopointCount()) {
+                destMarker = newMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(geopointTable.getGeopointByIndex(i).getLat(),
+                                             geopointTable.getGeopointByIndex(i).getLng()))
+                        .title(destString));
+            }
+
+            distanceFt += (geopointTable.getGeopointByIndex(i-1).getNextDistance());
+        }
+
+        //Calculates Time to Walk and prints info.
+        timeToDestination = (distanceFt/5)/60;
+        infoPane.setText("Time to Destination: " + timeToDestination + " min.\nDistance to: " + distanceFt + " ft.");
+    }
+
     @Override
     public void onMapReady(GoogleMap map) {
         newMap = map;
-        newMap.moveCamera(CameraUpdateFactory.zoomTo(10));
-        newMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(33.2075, -97.1526)));
     }
 }

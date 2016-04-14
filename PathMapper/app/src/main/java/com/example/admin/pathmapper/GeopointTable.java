@@ -26,13 +26,6 @@ public class GeopointTable implements Serializable {
 
     public int getGeopointCount(){ return geopointCount; }
 
-    public void setEndsNextGeopoint(Geopoint geopoint) {
-        geopointVector.elementAt(geopointCount-2).setNextGeopoint(geopoint);
-
-       if(geopoint != null)
-           setdistanceToNext(geopointVector.elementAt(geopointCount - 2), geopoint);
-    }
-
     public void setdistanceToNext(Geopoint geopoint1, Geopoint geopoint2) {
 
         double lat1 = geopoint1.getLat();
@@ -49,6 +42,5 @@ public class GeopointTable implements Serializable {
         distance *= 1609.344; //Miles to Meters
 
         geopoint1.setNextDistance(distance);
-
     }
 }

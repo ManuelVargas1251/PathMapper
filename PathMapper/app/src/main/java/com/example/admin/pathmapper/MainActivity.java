@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity{
 
                 if(searchFlag == 0){
                     intent.putExtra("nextActivity", 0);
-                    startActivityForResult(intent, 1);
+                    startActivityForResult(intent, 2);
                 }
                 else if (searchFlag == 1) {
                     intent.putExtra("nextActivity", 1);
-                    startActivityForResult(intent, 1);
+                    startActivityForResult(intent, 2);
                 }
 
                 searchInput.setText("");
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if(requestCode == 1){
+        if(requestCode == 2){
             if(resultCode == popNextActivity.RESULT_OK){
                 answer = data.getIntExtra("answer", 0);
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity{
                 //Passes Search String to Navigate Path Activity.
                 else if(searchFlag == 1 && answer == 1) {
                     Intent nextActivityIntent = new Intent(getApplicationContext(), navigateActivity.class);
-                    nextActivityIntent.putExtra("searchString", searchString);
+                    nextActivityIntent.putExtra("destString", searchString);
                     startActivity(nextActivityIntent);
                 }
             }
