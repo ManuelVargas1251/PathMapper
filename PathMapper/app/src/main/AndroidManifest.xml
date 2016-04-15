@@ -58,9 +58,15 @@
             android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".navigateActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".popCreatePath"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".popCreatePath"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name=".popsubmitConfirmActivity"
+            android:theme="@style/AppTheme.CustomTheme" >
+
+        </activity>
     </application>
 
 </manifest>

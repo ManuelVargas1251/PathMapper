@@ -72,6 +72,9 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
                 newLoc = new LatLng(location.getLatitude(), location.getLongitude());
 
                 //Creates maker of user position.
+                if(marker != null)
+                    marker.remove();
+
                 marker = newMap.addMarker(new MarkerOptions()
                                                 .position(newLoc)
                                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
@@ -131,6 +134,7 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
             @Override
             public void onClick(View v) {
                 locationManager.removeUpdates(locationListener);
+                System.gc();
                 finish();
             }
         });

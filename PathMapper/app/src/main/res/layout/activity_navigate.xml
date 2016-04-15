@@ -8,22 +8,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.admin.pathmapper.navigateActivity"
-    >
+    android:background="#ebebeb">
 
     <fragment
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/mapFragment"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="60dp"
+        />
 
     <Button
         android:layout_width="70dp"
         android:layout_height="fill_parent"
         android:text="Back"
         android:id="@+id/backButton"
-        android:layout_alignBottom="@+id/infoPane"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#c6c6c6"
+        android:layout_marginRight="10dp"
+        android:layout_alignBottom="@+id/infoPane" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,12 +35,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/infoPane"
-        android:layout_alignTop="@+id/mapFragment"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:background="#bcbbbb"
+        android:background="@drawable/roundcorners"
         android:textColor="#000000"
-        android:layout_marginLeft="70dp"
-        android:textAlignment="textEnd" />
+        android:layout_marginLeft="10dp"
+        android:textAlignment="textStart"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/backButton" />
 
 </RelativeLayout>

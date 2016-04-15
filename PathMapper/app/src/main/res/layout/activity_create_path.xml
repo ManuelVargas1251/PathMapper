@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.admin.pathmapper.createPathActivity"
     android:clickable="true"
-    >
+    android:background="#ebebeb">
 
     <Button
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         android:id="@+id/button"
         android:clickable="true"
         android:height="40dp"
-        android:background="#00fd01"
+        android:background="@drawable/roundcorners"
         android:textSize="15dp"
         android:textAlignment="center"
         android:singleLine="false"
@@ -29,13 +29,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Back"
+        android:text="Back"
+        android:background="#c6c6c6"
         android:id="@+id/backButton"
         android:layout_alignTop="@+id/button"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:clickable="true"
-        android:nestedScrollingEnabled="false" />
+        android:nestedScrollingEnabled="false"
+        android:layout_marginLeft="5dp" />
 
     <fragment
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -43,7 +45,9 @@
         android:layout_height="match_parent"
         android:id="@+id/mapFragment"
         android:layout_above="@+id/button"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+
+        />
 
     <ScrollView
         android:layout_width="fill_parent"

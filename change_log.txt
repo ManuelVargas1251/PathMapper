@@ -48,3 +48,19 @@ Removed:
 		
 Changed:
 		* Altered button response on destination name submission.
+		
+--------------------------------------------------------------------------------
+Updated: 04/15/2016
+Current Version: 0.7.7
+Update Author: Zachary Serna
+--------------------------------------------------------------------------------
+Added:	
+		+ Added Confirmation popup to signal successful path upload.			
+	
+Removed:
+		- Pictures causing crashes.
+		
+Changed:
+		* Path Creation Popup was incorrectly handling "back" button presses
+		* Altered aesthetic by adding logo and icon logo. General color scheme updated.
+		* System now uploading paths correctly.

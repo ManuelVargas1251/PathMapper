@@ -6,7 +6,7 @@ package com.example.admin.pathmapper;
 public class AdjVertice {
     private String _srcVeticeId;
     private String _desVerticeId;
-    private int _cost;
+    private double _cost;
 
     public String getSourceVeticeId() {
         return _srcVeticeId;
@@ -24,11 +24,11 @@ public class AdjVertice {
         this._desVerticeId = _desVerticeId;
     }
 
-    public int getCost() {
+    public double getCost() {
         return _cost;
     }
 
-    public void setCost(int _cost) {
+    public void setCost(double _cost) {
         this._cost = _cost;
     }
 }

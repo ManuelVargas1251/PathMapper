@@ -67,16 +67,23 @@ public class popCreatePath extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                destString = input.getText().toString();
 
-                if(destString.length() > 0) {
+                if (nextActivityStatus == 0) {
+                    destString = input.getText().toString();
+
+                    if (destString.length() > 0) {
+                        returnIntent.putExtra("answer", 1);
+                        returnIntent.putExtra("destString", destString);
+                        setResult(popNextActivity.RESULT_OK, returnIntent);
+                        finish();
+                    } else
+                        input.setHint("Cannot leave blank...");
+                }
+                else if (nextActivityStatus == 1) {
                     returnIntent.putExtra("answer", 1);
-                    returnIntent.putExtra("destString", destString);
                     setResult(popNextActivity.RESULT_OK, returnIntent);
                     finish();
                 }
-                else
-                    input.setHint("Cannot leave blank...");
             }
         });
     }

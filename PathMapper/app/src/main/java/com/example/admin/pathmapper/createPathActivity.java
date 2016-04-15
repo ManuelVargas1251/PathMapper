@@ -197,7 +197,7 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
             v.setLng(geopointTable.getGeopointByIndex(i).getLng());
 
             //need a vertex name, so we can find it by name. Uses UUID to create unique names for non-destinations.
-            if((i-1) != geopointTable.getGeopointCount())
+            if(i != (geopointTable.getGeopointCount() - 1))
                 v.setName(UUID.randomUUID().toString());
             else
                 v.setName(destString);
@@ -226,7 +226,7 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
                 AdjVertice adj = new AdjVertice();
                 adj.setSourceVeticeId(_currentVertice.getKey());
                 adj.setDestinationVerticeId(vertexId);
-                adj.setCost(10); //temporary hard code here, will calculate later
+                adj.setCost(geopointTable.getGeopointByIndex(i).getNextDistance());
 
                 //add adjacentVertice to firebase.
                 Firebase refMapper = new Firebase("https://torrid-fire-6521.firebaseio.com/PathMapper");
@@ -264,13 +264,17 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
                 if(nextActivity == 0 && answer == 1){
                     destString = data.getStringExtra("destString");
                     uploadPath();
+                    System.gc();
+                    startActivity(new Intent(getApplicationContext(), popsubmitConfirmActivity.class));
                     finish();
                 }
-                else
+                else if(nextActivity == 0 && answer == 0) {
+                    System.gc();
                     finish();
-
-                if (nextActivity == 1 && answer == 1){
+                }
+                else if (nextActivity == 1 && answer == 1){
                     locationManager.removeUpdates(locationListener);
+                    System.gc();
                     finish();
                 }
             }
