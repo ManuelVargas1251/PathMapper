@@ -23,7 +23,7 @@ We’ve created this as a part of a senior school project to help us understand 
 - [x] Requirements Specification - Due 2/29/16
 - [x] Design Document - Due 3/11/16
 - [x] Requirements and Design Review Presentation - Due 3/29/16
-- [ ] Users/Administrators Manual - Due 4/15/16
+- [x] Users/Administrators Manual - Due 4/15/16
 - [ ] Design Day Presentation/Poster - Due 4/25/16
 - [ ] Delivery Plan - Due 4/29/16
 
@@ -33,7 +33,7 @@ Reports are due every other week
 - [x] 2/25/16
 - [x] 3/10/16
 - [x] 3/24/16
-- [ ] 4/7/16
+- [x] 4/7/16
 - [ ] 4/21/16
 
 
