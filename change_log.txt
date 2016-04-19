@@ -64,3 +64,19 @@ Changed:
 		* Path Creation Popup was incorrectly handling "back" button presses
 		* Altered aesthetic by adding logo and icon logo. General color scheme updated.
 		* System now uploading paths correctly.
+		
+--------------------------------------------------------------------------------
+Updated: 04/18/2016
+Current Version: 0.8.5
+Update Author: Zachary Serna
+--------------------------------------------------------------------------------
+Added:	
+		+ Integrated Loc's shortest path code to calculate and upload shorest path.	
+		+ Added function to capture physical back button presses to prevent unwanted closures.
+	
+Removed:
+		- Removed unecessary garbage colection calls.
+		- Removed initial camera changes on creat path launch.
+		
+Changed:
+		

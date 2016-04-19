@@ -134,7 +134,6 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
             @Override
             public void onClick(View v) {
                 locationManager.removeUpdates(locationListener);
-                System.gc();
                 finish();
             }
         });
@@ -175,5 +174,9 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
     @Override
     public void onMapReady(GoogleMap map) {
         newMap = map;
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }

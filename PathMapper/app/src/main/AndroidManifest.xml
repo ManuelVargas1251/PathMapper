@@ -63,7 +63,7 @@
             android:name=".popCreatePath"
             android:theme="@style/AppTheme.CustomTheme" />
         <activity
-            android:name=".popsubmitConfirmActivity"
+            android:name=".popSubmitConfirmActivity"
             android:theme="@style/AppTheme.CustomTheme" >
 
         </activity>

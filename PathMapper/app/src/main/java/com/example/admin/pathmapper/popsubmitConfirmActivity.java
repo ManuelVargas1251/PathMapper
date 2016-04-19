@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class popsubmitConfirmActivity extends AppCompatActivity {
+public class popSubmitConfirmActivity extends AppCompatActivity {
 
     private Button yesPopButton;
 
@@ -51,6 +51,10 @@ public class popsubmitConfirmActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
 
