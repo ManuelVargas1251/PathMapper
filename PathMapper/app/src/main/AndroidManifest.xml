@@ -64,9 +64,10 @@
             android:theme="@style/AppTheme.CustomTheme" />
         <activity
             android:name=".popSubmitConfirmActivity"
-            android:theme="@style/AppTheme.CustomTheme" >
-
-        </activity>
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity
+            android:name=".popLoadDataActivity"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
     </application>
 
 </manifest>

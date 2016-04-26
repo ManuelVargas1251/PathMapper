@@ -88,7 +88,7 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
 
                 newMap.moveCamera(CameraUpdateFactory.zoomTo(18));
 
-                newGeopoint = new Geopoint(location.getLatitude(), location.getLongitude(), prevGeopoint, null);
+                newGeopoint = new Geopoint(location.getLatitude(), location.getLongitude());
                 geopointTable.addGeopoint(newGeopoint);
 
                 if(!firstLoop) {
@@ -268,10 +268,12 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
                 if(nextActivity == 0 && answer == 1){
                     destString = data.getStringExtra("destString");
                     uploadPath();
+                    locationManager.removeUpdates(locationListener);
                     startActivity(new Intent(getApplicationContext(), popSubmitConfirmActivity.class));
                     finish();
                 }
                 else if(nextActivity == 0 && answer == 0) {
+                    locationManager.removeUpdates(locationListener);
                     finish();
                 }
                 else if (nextActivity == 1 && answer == 1){

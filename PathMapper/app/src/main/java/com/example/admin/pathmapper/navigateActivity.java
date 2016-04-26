@@ -27,6 +27,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.util.List;
+
 public class navigateActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private String destString;
@@ -56,6 +58,7 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
         infoPane = (TextView) findViewById(R.id.infoPane);
         backButton = (Button) findViewById(R.id.backButton);
         backButton();
+
         //getPath();
         //drawPath();
 
@@ -81,6 +84,10 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
 
                 newMap.moveCamera(CameraUpdateFactory.zoomTo(18));
                 newMap.moveCamera(CameraUpdateFactory.newLatLng(newLoc));
+
+                if(!_isHavingPath)
+                    getPath();
+
             }
 
             @Override
@@ -139,8 +146,41 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
         });
     }
 
-    public void getPath(){
+    boolean _isHavingPath = false;
+
+    public void getPath() {
         //Enter code to get path
+        //lochuynh: get path to navigate here.
+        //get current location, then build the source vertex
+        if (newLoc == null)
+            getLocation();
+
+        //build source vertex.
+        Vertice srcVertex = MapController.getInstance().getVerticeByLatLng(newLoc);
+        Vertice desVertex = MapController.getInstance().getVerticeByName(destString);
+
+        Path p = MapController.getInstance().GetPathFromFireBase(srcVertex, desVertex);
+        if (p != null) {
+            _isHavingPath = true;
+
+            //create geopoint table, then draw path
+            Geopoint srcPoint = new Geopoint(srcVertex.getLat(), srcVertex.getLng());
+            geopointTable.addGeopoint(srcPoint);
+
+            List<String> lstDetail = p.getPathDetail();
+            for (int i = 0; i < lstDetail.size(); i++) {
+                String key = lstDetail.get(i);
+                Vertice midVertice = MapController.getInstance().getVerticeByKey(key);
+                Geopoint midPoint = new Geopoint(midVertice.getLat(), midVertice.getLng());
+                geopointTable.addGeopoint(midPoint);
+            }
+
+            Geopoint desPoint = new Geopoint(desVertex.getLat(), desVertex.getLng());
+            geopointTable.addGeopoint(desPoint);
+
+            //final, draw path
+            drawPath();
+        }
     }
 
     public void drawPath(){

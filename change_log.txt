@@ -80,3 +80,17 @@ Removed:
 		
 Changed:
 		
+--------------------------------------------------------------------------------
+Updated: 04/25/2016
+Current Version: 0.9.5
+Update Author: Zachary Serna
+--------------------------------------------------------------------------------
+Added:	
+		+ Added loading popup to assure data is loaded before use+
+		+ Added timeouts for getting current location.
+		+ Added search lock to prevent search button presses during search processes.
+	
+Removed:
+				
+Changed:	
+		* Altered Map Controller class to prevent crashes.

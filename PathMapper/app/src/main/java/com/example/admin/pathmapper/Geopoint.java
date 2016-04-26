@@ -11,7 +11,7 @@ public class Geopoint implements Serializable{
     private double lng;
     private double distanceToNext;
 
-    public Geopoint(double newLat, double newLng, Geopoint newPrevGeopoint, Geopoint newNextGeopoint){
+    public Geopoint(double newLat, double newLng){
         lat = newLat;
         lng = newLng;
         distanceToNext = 0;
