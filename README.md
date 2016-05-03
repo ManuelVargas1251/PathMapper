@@ -2,6 +2,8 @@
 ![Programming Language](https://img.shields.io/badge/Language-Java-black.svg)
 ![Build Status](https://img.shields.io/badge/Build-Documentation-green.svg)
 ![Version](https://img.shields.io/badge/Version-v0.02-blue.svg)
+[logo]:https://raw.githubusercontent.com/ManuelVargas1251/PathMapper/master/icon/mipmap-hdpi/ic_launcher.png 
+
 # Path Mapper
 CSCE 4901 - Software Development Project
 
