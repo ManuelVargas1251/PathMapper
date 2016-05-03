@@ -5,7 +5,6 @@
 
 
 ![](https://raw.githubusercontent.com/ManuelVargas1251/PathMapper/master/icon/mipmap-hdpi/ic_launcher.png)
-
 # Path Mapper
 CSCE 4901 - Software Development Project
 
