@@ -2,6 +2,9 @@
 ![Programming Language](https://img.shields.io/badge/Language-Java-black.svg)
 ![Build Status](https://img.shields.io/badge/Build-Documentation-green.svg)
 ![Version](https://img.shields.io/badge/Version-v0.02-blue.svg)
+
+
+![](https://raw.githubusercontent.com/ManuelVargas1251/PathMapper/master/icon/mipmap-hdpi/ic_launcher.png)
 # Path Mapper
 CSCE 4901 - Software Development Project
 
@@ -34,7 +37,12 @@ Reports are due every other week
 - [x] 3/10/16
 - [x] 3/24/16
 - [x] 4/7/16
+<<<<<<< HEAD
 - [x] 5/5/16
+=======
+- [x] 4/21/16
+- [ ] 5/5/16
+>>>>>>> origin/master
 
 
 
