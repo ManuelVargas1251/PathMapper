@@ -31,6 +31,7 @@ import java.util.List;
 
 public class navigateActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    int distanceFt, timeToDestination;
     private String destString;
 
     private GeopointTable geopointTable = new GeopointTable();
@@ -184,9 +185,10 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     public void drawPath(){
-        int distanceFt = 0, timeToDestination = 0;
 
-        for(int i = 1; i < geopointTable.getGeopointCount(); i++) {
+        distanceFt = 0;
+
+        for(int i = 0; i < geopointTable.getGeopointCount(); i++) {
             //Builds Polyline to navigate.
             line = newMap.addPolyline(new PolylineOptions()
                     .add(new LatLng(geopointTable.getGeopointByIndex(i-1).getLat(),
@@ -203,12 +205,13 @@ public class navigateActivity extends AppCompatActivity implements OnMapReadyCal
                         .title(destString));
             }
 
-            distanceFt += (geopointTable.getGeopointByIndex(i-1).getNextDistance());
+            if(i != 0)
+                distanceFt += (geopointTable.getGeopointByIndex(i-1).getNextDistance());
         }
 
         //Calculates Time to Walk and prints info.
         timeToDestination = (distanceFt/5)/60;
-        infoPane.setText("Time to Destination: " + timeToDestination + " min.\nDistance to: " + distanceFt + " ft.");
+        infoPane.setText(" Time to Destination: " + timeToDestination + " min.\n Distance to: " + distanceFt + " ft.");
     }
 
     @Override

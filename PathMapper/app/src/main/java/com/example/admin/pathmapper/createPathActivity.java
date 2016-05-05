@@ -92,11 +92,11 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
                 geopointTable.addGeopoint(newGeopoint);
 
                 if(!firstLoop) {
-                        // Add a thin red line from London to New York.
-                        line = newMap.addPolyline(new PolylineOptions()
-                                .add(prevLoc, newLoc)
-                                .width(5)
-                                .color(Color.RED));
+                    // Add a thin red line from London to New York.
+                    line = newMap.addPolyline(new PolylineOptions()
+                            .add(prevLoc, newLoc)
+                            .width(5)
+                            .color(Color.RED));
 
                     geopointTable.setdistanceToNext(prevGeopoint, newGeopoint);
                 }
@@ -179,16 +179,18 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              nextActivity = 1;
-              Intent intent = new Intent(getApplicationContext(), popCreatePath.class);
-              intent.putExtra("nextActivity", 1);
-              startActivityForResult(intent, 1);
+                nextActivity = 1;
+                Intent intent = new Intent(getApplicationContext(), popCreatePath.class);
+                intent.putExtra("nextActivity", 1);
+                startActivityForResult(intent, 1);
             }
         });
     }
 
     public void uploadPath(){
         //lochuynh & Zachary Serna: create vertex, then add it to firebase.
+        //save to firebase
+        ref = new Firebase("https://popping-torch-1288.firebaseio.com/PathMapper");
 
         for(int i = 0; i < geopointTable.getGeopointCount(); i++){
 
@@ -203,7 +205,7 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
                 v.setName(destString);
 
             //save to firebase
-            ref = new Firebase("https://popping-torch-1288.firebaseio.com/PathMapper");
+            //ref = new Firebase("https://popping-torch-1288.firebaseio.com/PathMapper");
 
             //push a new info.
             verticesRef = ref.child("Vertices");
@@ -229,10 +231,10 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
                 adj.setCost(geopointTable.getGeopointByIndex(i).getNextDistance());
 
                 //add adjacentVertice to firebase.
-                refMapper = new Firebase("https://torrid-fire-6521.firebaseio.com/PathMapper");
+                //refMapper = new Firebase("https://popping-torch-1288.firebaseio.com/PathMapper");
 
                 //push a new info.
-                adjRef = refMapper.child("Adjacents");
+                adjRef = ref.child("Adjacents");
                 adjFileBase = adjRef.push();
 
                 Map<String, String> adjHashMap = new HashMap<String, String>();
@@ -245,6 +247,7 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
             } else
                 _currentVertice = v;
         }
+
 
         //Lochuynh add to build shortest path
         ShortestPath s = new ShortestPath();
@@ -267,8 +270,8 @@ public class createPathActivity extends AppCompatActivity implements OnMapReadyC
             if(resultCode == popNextActivity.RESULT_OK) {
                 if(nextActivity == 0 && answer == 1){
                     destString = data.getStringExtra("destString");
-                    uploadPath();
                     locationManager.removeUpdates(locationListener);
+                    uploadPath();
                     startActivity(new Intent(getApplicationContext(), popSubmitConfirmActivity.class));
                     finish();
                 }

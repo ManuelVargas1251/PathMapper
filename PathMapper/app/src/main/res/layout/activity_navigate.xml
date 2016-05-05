@@ -38,9 +38,9 @@
         android:background="@drawable/roundcorners"
         android:textColor="#000000"
         android:layout_marginLeft="10dp"
-        android:textAlignment="textStart"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/backButton" />
+        android:layout_toEndOf="@+id/backButton"
+        android:textAlignment="textStart" />
 
 </RelativeLayout>
