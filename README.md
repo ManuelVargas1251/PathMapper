@@ -23,9 +23,11 @@ We’ve created this as a part of a senior school project to help us understand 
 ##Deliverables
 
 - [x] Project Management Plan (PMP)
-Due 2/12/16
+	Due 2/12/16
+	
 - [x] Requirements Specification
-Due 2/29/16
+	Due 2/29/16
+	
 - [x] Design Document - Due 3/11/16
 - [x] Requirements and Design Review Presentation - Due 3/29/16
 - [x] Users/Administrators Manual - Due 4/15/16
