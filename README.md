@@ -1,7 +1,7 @@
 <!-- using shields.io for status buttons -->
 ![Programming Language](https://img.shields.io/badge/Language-Java-black.svg)
-![Build Status](https://img.shields.io/badge/Build-Documentation-green.svg)
-![Version](https://img.shields.io/badge/Version-v0.02-blue.svg)
+![Status](https://img.shields.io/badge/Status-Working-green.svg)
+![Version](https://img.shields.io/badge/Version-v1.02-blue.svg)
 
 
 ![](https://raw.githubusercontent.com/ManuelVargas1251/PathMapper/master/icon/mipmap-hdpi/ic_launcher.png)
