@@ -94,3 +94,15 @@ Removed:
 				
 Changed:	
 		* Altered Map Controller class to prevent crashes.
+		
+--------------------------------------------------------------------------------
+Updated: 05/04/2016
+Current Version: 1.0.0
+Update Author: Zachary Serna
+--------------------------------------------------------------------------------
+Added:	
+			
+Removed:
+				
+Changed:	
+		* Fixed adjacency list not being uploaded to database.
