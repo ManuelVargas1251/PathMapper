@@ -8,7 +8,7 @@
 # Path Mapper
 CSCE 4901 - Software Development Project
 
-##Introduction
+## Introduction
 
 We are creating an android mobile application that creates a map of walkable locations that services like Google Maps have not charted before, such as campuses, theme parks, etc. Once these places have been charted, the application can provide paths from location to location to anyone who visits the previously mapped area. 
 
