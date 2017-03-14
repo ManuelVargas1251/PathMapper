@@ -17,10 +17,10 @@ The application will utilize the mobile phone’s location to create paths that 
 We’ve created this as a part of a senior school project to help us understand the project process of creating a product/service as we would in any real world work environment. This will help us understand and experience project planning, design, management and finally, project completion. Aside from the logistical work listed above, we will be delving into a variety of new ways to make the actual program such as languages, environments, and implementations.
 
 
-##Members
+## Members
 [Loc Huynh](https://github.com/loczhuynh) | [Zachary Serna](https://github.com/ZacharySerna) | [Bereket Teweldebrhan](https://github.com/bkmearoy) | [Manuel Vargas](http://manuelvargas.me/dynamo)
 
-##Deliverables
+## Deliverables
 
 - [x] Project Management Plan (PMP) - Due 2/12/16
 - [x] Requirements Specification - Due 2/29/16
@@ -30,7 +30,7 @@ We’ve created this as a part of a senior school project to help us understand 
 - [x] Design Day Presentation/Poster - Due 4/25/16
 - [x] Delivery Plan - Due 4/29/16
 
-##Status Reports
+## Status Reports
 Reports are due every other week
 - [x] 2/11/16
 - [x] 2/25/16
